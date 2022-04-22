@@ -128,7 +128,7 @@ public class StepDefinition {
     
     @When("HRD tidak menginput Template Name")
     public void hrd_tidak_input_template_name() {
-    	switch_window();
+    	templatePAPage.switch_window();
     	tunggu(2);
     	templatePAPage.dataTemplatePA();
     	extentTest.log(LogStatus.PASS, "HRD tidak menginput Template Name");
@@ -200,19 +200,5 @@ public class StepDefinition {
 			e.printStackTrace();
 		}
 	}
-    
-    public void switch_window() {
-    	String parentWindow = driver.getWindowHandle();
-    	Set<String> handles =  driver.getWindowHandles();
-    	   for(String windowHandle  : handles)
-    	       {
-    	       if(!windowHandle.equals(parentWindow)) {
-    	          driver.switchTo().window(windowHandle);
-    	          driver.close(); //closing child window
-    	          driver.switchTo().window(parentWindow); //cntrl to parent window
-    	          driver.navigate().to("https://dev.ptdika.com/hrd_new/performance_appraisal_new/set_template/form_create_template_pa");
-    	       }
-    	   }
-    }
     
 }
