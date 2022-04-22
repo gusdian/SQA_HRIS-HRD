@@ -38,6 +38,12 @@ public class ConfigurationProperties {
 	@Value("${txtCategoryName}")
 	private String txtCategoryName;
 	
+	@Value("${txtTemplateName}")
+	private String txtTemplateName;
+	
+	@Value("${templateName}")
+	private String templateName;
+	
 	//----------------------Declaration Getter-----------------------------------
 	
 	public String getBrowser() {
@@ -80,6 +86,14 @@ public class ConfigurationProperties {
 
 	public String getTxtCategoryName() {
 		return txtCategoryName;
+	}
+	
+	public String getTxtTemplateName() {
+		return txtTemplateName;
+	}
+	
+	public String getTemplateName() {
+		return templateName;
 	}
 
 	
