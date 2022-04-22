@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.juaracoding.sqahrishrd.config.AutomationFrameworkConfig;
 import com.juaracoding.sqahrishrd.drivers.DriverSingleton;
+import com.juaracoding.sqahrishrd.pages.CategoryPage;
 import com.juaracoding.sqahrishrd.pages.LoginPage;
 import com.juaracoding.sqahrishrd.utils.ConfigurationProperties;
 import com.juaracoding.sqahrishrd.utils.Constants;
@@ -20,6 +21,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -31,6 +33,7 @@ public class StepDefinition {
 
 	private static WebDriver driver;
 	private LoginPage loginPage;
+	private CategoryPage Categorypage;
 	
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReport.html");
@@ -43,6 +46,7 @@ public class StepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configProp.getBrowser());
 		loginPage = new LoginPage();
+		Categorypage = new CategoryPage();
 		
 		TestCases[] tests = TestCases.values();
 		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
@@ -100,14 +104,27 @@ public class StepDefinition {
     	loginPage.submitLoginValid(configProp.getEmail(), configProp.getPassword());
     }
 
-  //----------------------( Target Page )----------------------//
+  //----------------------( Category Page )----------------------//
+   @When("HRD Klik Menu PA")
+   public void hrd_klik_menu_pa() {
+	   tunggu(1);
+	   Categorypage.MenuPA();
+	   extentTest.log(LogStatus.PASS, "HRD Klik Menu PA");
+   }
    
-
-	@Then("Menampilkan data yang dicari")
-	public void tampil_search_PA360() {
-    	tunggu(2);
-    	extentTest.log(LogStatus.FAIL, "Menampilkan data yang dicari");
-    }
+	   @Then("HRD Membuat Template Category")
+	   public void hrd_membuat_template_category() {
+		tunggu(1);
+		Categorypage.AddCategory(configProp.getCategoryName(), configProp.getFilter());
+		extentTest.log(LogStatus.PASS, "HRD Membuat Template Category");
+	   }
+	   
+		@And("HRD Berhasil Membuat Template Category")
+		public void hrd_berhasil_membuat_template_category() {
+			tunggu(1);
+	    	assertEquals(configProp.getTxtCategoryName(), Categorypage.getTxtCategoryName());
+	    	extentTest.log(LogStatus.PASS, "HRD Berhasil Membuat Template Category");
+		}
     
     public void tunggu(int detik) {
 		try {

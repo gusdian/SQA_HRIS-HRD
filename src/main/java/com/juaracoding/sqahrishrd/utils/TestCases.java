@@ -3,7 +3,8 @@ package com.juaracoding.sqahrishrd.utils;
 public enum TestCases {
 
 	T1("Testing Login HRD Valid"),
-	T2("Testing Login HRD Invalid");
+	T2("Testing Login HRD Invalid"),
+	T3("Testing HRD Membuat Template Category");
 	
 	private String testName;
 	

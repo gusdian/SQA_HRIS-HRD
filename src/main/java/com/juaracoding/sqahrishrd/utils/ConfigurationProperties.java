@@ -28,8 +28,17 @@ public class ConfigurationProperties {
 	
 	@Value("${txtWrongEmailPass}")
 	private String txtWrongEmailPass;
+
+	@Value("${filter}")
+	private String filter;
+
+	@Value("${categoryName}")
+	private String categoryName;
+
+	@Value("${txtCategoryName}")
+	private String txtCategoryName;
 	
-//----------------------Declaration Getter-----------------------------------
+	//----------------------Declaration Getter-----------------------------------
 	
 	public String getBrowser() {
 		return browser;
@@ -58,6 +67,21 @@ public class ConfigurationProperties {
 	public String getTxtWrongEmailPass() {
 		return txtWrongEmailPass;
 	}
+
+//----------------------Category Page-----------------------------------
+	
+	public String getFilter() {
+		return filter;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public String getTxtCategoryName() {
+		return txtCategoryName;
+	}
+
 	
 //----------------------Declaration Setter-----------------------------------
 	
@@ -68,4 +92,16 @@ public class ConfigurationProperties {
 	public void setTxtWrongEmailPass(String txtWrongEmailPass) {
 		this.txtWrongEmailPass = txtWrongEmailPass;
 	}
+//----------------------Category Page-----------------------------------	
+
+	public void setFilter(String filter) {
+		this.filter = filter;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+
+
 }
