@@ -28,6 +28,9 @@ public class ConfigurationProperties {
 	
 	@Value("${txtWrongEmailPass}")
 	private String txtWrongEmailPass;
+	
+	@Value("${txtWelcomeBack}")
+	private String txtWelcomeBack;
 
 	@Value("${filter}")
 	private String filter;
@@ -101,6 +104,10 @@ public class ConfigurationProperties {
 
 	public String getTxtWrongEmailPass() {
 		return txtWrongEmailPass;
+	}
+	
+	public String getTxtWelcomeBack() {
+		return txtWelcomeBack;
 	}
 
 //----------------------Category Page-----------------------------------

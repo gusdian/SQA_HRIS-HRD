@@ -25,8 +25,8 @@ public class LoginPage {
 	@FindBy(xpath = "//*[@id=\"page-container\"]/div/div[2]/div[2]/form/div[3]/button")
 	WebElement btnLogin;
 	
-//	@FindBy(xpath = "//*[@id=\"gritter-item-1\"]/div[2]/div[1]/span")
-//	WebElement txtWelcome;
+	@FindBy(xpath = "//*[@id=\"gritter-item-1\"]/div[2]/div[1]/span")
+	WebElement txtWelcomeBack;
 	
 	@FindBy(xpath = "//*[@id=\"sidebar\"]/div/div[1]/ul[1]/li/a/div[3]")
 	WebElement txtWelcome;
@@ -60,6 +60,10 @@ public class LoginPage {
 		return txtWrongEmailPass.getText();
 	}
 	
+	public String getTxtWelcomeBack() {
+		return txtWelcomeBack.getText();
+	}
+	
 	public void Logout() {
 //		btnClose.click();
 		tunggu(1);
@@ -80,7 +84,7 @@ public class LoginPage {
 		inputPassword.sendKeys(password);
 		tunggu(1);
 		btnLogin.click();
-//		btnClose.click();
+		btnClose.click();
 	}
 	
 	public void tunggu(int detik) {

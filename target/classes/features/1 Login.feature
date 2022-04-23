@@ -10,3 +10,4 @@ Feature: User Login to HRIS - PA HRD
   Scenario: Testing Login HRD Invalid
     When User invalid klik login button
     Then User gagal login
+    Then User login lagi

@@ -109,8 +109,13 @@ public class StepDefinition {
     	tunggu(1);
     	assertEquals(configProp.getTxtWrongEmailPass(), loginPage.getTxtWrongEmailPass());
     	extentTest.log(LogStatus.PASS, "User gagal login");
+    }
+    
+    @Then("User login lagi")
+    public void user_login_lagi() {
     	tunggu(2);
     	loginPage.submitLoginValid(configProp.getEmail(), configProp.getPassword());
+    	extentTest.log(LogStatus.PASS, "User login lagi");
     }
 
   //----------------------( Template Page )----------------------//

@@ -4,8 +4,9 @@ public enum TestCases {
 
 	T1("Testing Login HRD Valid"),
 	T2("Testing Login HRD Invalid"),
-	T3("Testing HRD Membuat Template Category"),
-	T4("Testing HRD Report");
+	T3("Testing Template PA"),
+	T4("Testing HRD Membuat Template Category"),
+	T5("Testing HRD Report");
 	
 	private String testName;
 	

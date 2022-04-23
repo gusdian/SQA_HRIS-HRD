@@ -168,6 +168,7 @@ private WebDriver driver;
 	}
 	
 	public void exportExcel() {
+		tunggu(2);
 		btnExport.click();
 	}
 	
