@@ -74,8 +74,11 @@ public class CategoryPage {
 		btnSave.click();
 		tunggu();
 		Filter.sendKeys(filter);
+		tunggu();
 		CheckBox.get(0).click();
+		tunggu();
 		Delete.click();
+		tunggu();
 		Alert alert_box = driver.switchTo().alert();
 		alert_box.accept(); 
 		tunggu();
@@ -95,7 +98,7 @@ public class CategoryPage {
 		
 		public void tunggu() {
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
