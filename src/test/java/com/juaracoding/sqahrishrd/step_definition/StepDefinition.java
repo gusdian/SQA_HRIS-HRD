@@ -185,7 +185,7 @@ public class StepDefinition {
 	   @Then("HRD Membuat Template Category")
 	   public void hrd_membuat_template_category() {
 		tunggu(1);
-		Categorypage.AddCategory(configProp.getCategoryName(), configProp.getFilter());
+		Categorypage.AddCategory(configProp.getCategoryName(), configProp.getFilter(), configProp.getCategoryName1());
 		extentTest.log(LogStatus.PASS, "HRD Membuat Template Category");
 	   }
 	   
@@ -213,7 +213,7 @@ public class StepDefinition {
 	    	tunggu(1);
 	    	assertEquals(configProp.getTxtReport(), reportPage.getTxtReport());
 	    	extentTest.log(LogStatus.PASS, "User masuk halaman report");
-	    	reportPage.HalReport(configProp.getHal(), configProp.getGroup(), configProp.getDivi(), configProp.getFilter());
+	    	reportPage.HalReport(configProp.getHal(), configProp.getGroup(), configProp.getDivi(), configProp.getFilter1());
 	    }
 	    
 	    @Then("User berhasil export")

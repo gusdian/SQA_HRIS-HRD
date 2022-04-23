@@ -60,7 +60,7 @@ public class CategoryPage {
 		Listmenu.click();
 	}
 	
-	public void AddCategory(String categoryName, String filter) {
+	public void AddCategory(String categoryName, String filter,String categoryName1) {
 		scroll();
 		tunggu();
 		Entries.click();
@@ -70,6 +70,7 @@ public class CategoryPage {
 		Type.click();
 		ListType.get(2).click();
 		Category_Name.sendKeys(categoryName);
+		tunggu();
 		btnSave.click();
 		tunggu();
 		Filter.sendKeys(filter);
@@ -81,7 +82,9 @@ public class CategoryPage {
 		Create.click();
 		Type.click();
 		ListType.get(2).click();
-		Category_Name.sendKeys(categoryName);
+		tunggu();
+		Category_Name.sendKeys(categoryName1);
+		tunggu();
 		btnSave.click();
 		tunggu();
 	}

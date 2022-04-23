@@ -35,6 +35,9 @@ public class ConfigurationProperties {
 	@Value("${categoryName}")
 	private String categoryName;
 
+	@Value("${categoryName1}")
+	private String categoryName1;
+
 	@Value("${txtCategoryName}")
 	private String txtCategoryName;
 	
@@ -109,6 +112,10 @@ public class ConfigurationProperties {
 	public String getCategoryName() {
 		return categoryName;
 	}
+	
+	public String getCategoryName1() {
+		return categoryName1;
+	}
 
 	public String getTxtCategoryName() {
 		return txtCategoryName;
@@ -175,7 +182,9 @@ public class ConfigurationProperties {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-
-
+	
+	public void setCategoryName1(String categoryName1) {
+		this.categoryName = categoryName1;
+	}
 
 }
