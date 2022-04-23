@@ -42,6 +42,8 @@ public class LoginPage {
 	
 	@FindBy(xpath = "//*[@id=\"header\"]/ul/li[4]/div/a")
 	WebElement btnLogout;
+
+//------------------- Step -----------------//
 	
 	public void submitLoginValid(String email, String password) {
 		inputEmail.sendKeys(email);
@@ -70,6 +72,15 @@ public class LoginPage {
 		inputEmail.sendKeys(email_wrong);
 		inputPassword.sendKeys(password_wrong);
 		btnLogin.click();
+		tunggu(1);
+	}
+	
+	public void loginAgain(String email, String password) {
+		inputEmail.sendKeys(email);
+		inputPassword.sendKeys(password);
+		tunggu(1);
+		btnLogin.click();
+//		btnClose.click();
 	}
 	
 	public void tunggu(int detik) {

@@ -2,6 +2,7 @@ package com.juaracoding.sqahrishrd.step_definition;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
@@ -12,6 +13,7 @@ import com.juaracoding.sqahrishrd.config.AutomationFrameworkConfig;
 import com.juaracoding.sqahrishrd.drivers.DriverSingleton;
 import com.juaracoding.sqahrishrd.pages.CategoryPage;
 import com.juaracoding.sqahrishrd.pages.LoginPage;
+import com.juaracoding.sqahrishrd.pages.ReportPage;
 import com.juaracoding.sqahrishrd.pages.TemplatePAPage;
 import com.juaracoding.sqahrishrd.utils.ConfigurationProperties;
 import com.juaracoding.sqahrishrd.utils.Constants;
@@ -38,6 +40,7 @@ public class StepDefinition {
 	private LoginPage loginPage;
 	private CategoryPage Categorypage;
 	private TemplatePAPage templatePAPage;
+	private ReportPage reportPage;
 	
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReport.html");
@@ -52,6 +55,7 @@ public class StepDefinition {
 		loginPage = new LoginPage();
 		Categorypage = new CategoryPage();
 		templatePAPage = new TemplatePAPage();
+		reportPage = new ReportPage();
 		
 		TestCases[] tests = TestCases.values();
 		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
@@ -191,6 +195,34 @@ public class StepDefinition {
 	    	assertEquals(configProp.getTxtCategoryName(), Categorypage.getTxtCategoryName());
 	    	extentTest.log(LogStatus.PASS, "HRD Berhasil Membuat Template Category");
 		}
+		
+//----------------------( Report Page )----------------------//
+		   
+	    @When("User klik PA Report")
+	    public void user_klik_pa_report() {
+	    	tunggu(1);
+	    	reportPage.PANew(configProp.getPa());
+	    	assertEquals(configProp.getTxtDashboard(), reportPage.getTxtDashboard());
+	    	extentTest.log(LogStatus.PASS, "User masuk halaman dashboard");
+	    	ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+	    	driver.switchTo().window(tabs.get(1));
+	    }
+	    
+	    @Then("User on Report Page")
+	    public void user_on_report_page() {
+	    	tunggu(1);
+	    	assertEquals(configProp.getTxtReport(), reportPage.getTxtReport());
+	    	extentTest.log(LogStatus.PASS, "User masuk halaman report");
+	    	reportPage.HalReport(configProp.getHal(), configProp.getGroup(), configProp.getDivi(), configProp.getFilter());
+	    }
+	    
+	    @Then("User berhasil export")
+	    public void user_berhasil_export() {
+	    	tunggu(1);
+	    	reportPage.exportExcel();
+	    	assertEquals(configProp.getTxtExport(), reportPage.getTxtExport());
+	    	extentTest.log(LogStatus.PASS, "User berhasil export");
+	    }
     
     public void tunggu(int detik) {
 		try {

@@ -44,6 +44,32 @@ public class ConfigurationProperties {
 	@Value("${templateName}")
 	private String templateName;
 	
+	//------------- Report Page ----------------------
+	
+	@Value("${pa}")
+	private String pa;
+	
+	@Value("${hal}")
+	private String hal;
+	
+	@Value("${group}")
+	private String group;
+	
+	@Value("${divi}")
+	private String divi;
+	
+	@Value("${filter1}")
+	private String filter1;
+	
+	@Value("${txtDashboard}")
+	private String txtDashboard;
+	
+	@Value("${txtReport}")
+	private String txtReport;
+	
+	@Value("${btnExport}")
+	private String txtExport;
+	
 	//----------------------Declaration Getter-----------------------------------
 	
 	public String getBrowser() {
@@ -94,6 +120,40 @@ public class ConfigurationProperties {
 	
 	public String getTemplateName() {
 		return templateName;
+	}
+	
+//------------- Report Page ----------------------
+	
+	public String getPa() {
+		return pa;
+	}
+	
+	public String getHal() {
+		return hal;
+	}
+	
+	public String getGroup() {
+		return group;
+	}
+	
+	public String getDivi() {
+		return divi;
+	}
+	
+	public String getFilter1() {
+		return filter1;
+	}
+	
+	public String getTxtDashboard() {
+		return txtDashboard;
+	}
+	
+	public String getTxtReport() {
+		return txtReport;
+	}
+	
+	public String getTxtExport() {
+		return txtExport;
 	}
 
 	
